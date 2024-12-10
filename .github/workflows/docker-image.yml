@@ -24,7 +24,7 @@ jobs:
     - name: build and run
       run: |
         docker login -u $ALIYUN_REGISTRY_USER -p $ALIYUN_REGISTRY_PASSWORD $ALIYUN_REGISTRY
-        new_image="$ALIYUN_REGISTRY/$ALIYUN_NAME_SPACE/$platform_prefix$name_space_prefix/$DOCKER_NAME:$DOCKER_VERSION"
+        new_image="$ALIYUN_REGISTRY/$ALIYUN_NAME_SPACE/$platform_prefix$name_space_prefix$DOCKER_NAME:$DOCKER_VERSION"
         echo $new_image
         docker build . --file Dockerfile --build-arg CUDA_VERSION=12.1.0 --build-arg PYTHON_VERSION=3.10 --tag $new_image
         docker push $new_image
